@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Expertise</title>
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts for Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="index.css">
+    <!-- Internal CSS -->
+    <style>
+        /* Body Styling */
+        body {
+            background: #0a0a23;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+        }
+
+        /* Carbon Bonding Canvas */
+        #carbonCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(10, 10, 35, 0.8), rgba(28, 37, 38, 0.8));
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(0, 247, 255, 0.7);
+            color: #fff;
+            display: inline-block;
+        }
+        .hero-section h1 .char {
+            display: inline-block;
+            white-space: pre;
+            animation: typing 1s steps(1, end) forwards;
+            animation-delay: calc(var(--char-index) * 0.1s);
+            opacity: 0;
+        }
+        @media screen and (max-width: 321px) {
+
+                        .hero-section h1 .char{
+                font-size: 1.8rem;
+                color: red;
+                margin-top: -100px;
+            }
+            
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            color: #ccc;
+            animation: zoomIn 1s ease-in-out 0.3s;
+            animation-fill-mode: both;
+            margin: 20px auto 0;
+        }
+
+        /* Expertise Section */
+        .expertise-section {
+            padding: 80px 0;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a23, #1c2526);
+        }
+        .expertise-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        /* Holographic 3D Card Styling */
+        .expertise-card {
+            position: relative;
+            background: linear-gradient(145deg, rgba(10, 10, 35, 0.9), rgba(28, 37, 38, 0.9));
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 20px;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.3), 0 0 20px rgba(255, 98, 0, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        .expertise-card:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.5), 0 0 30px rgba(255, 98, 0, 0.5);
+        }
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 247, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            animation: hologram 3s infinite linear;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        .expertise-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        .expertise-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            filter: brightness(0.9) contrast(1.1);
+        }
+        .expertise-card:hover img {
+            transform: scale(1.05);
+        }
+        .expertise-card h5 {
+            font-size: 1.5rem;
+            color: #00f7ff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
+        }
+        .expertise-card p {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Smart Tech Section */
+        .smart-tech-section {
+            padding: 60px 0;
+            background: linear-gradient(45deg, #0a0a23, #1c2526);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+        .smart-tech-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 247, 255, 0.2), transparent 70%);
+            animation: pulse 8s infinite ease-in-out;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        .smart-tech-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        .smart-tech-section h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+            animation: zoomIn 1s ease-in-out;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .smart-tech-section p {
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.8;
+            /* max-width: 800px; */
+            margin: 0 auto;
+        }
+
+        /* Animation Keyframes */
+        @keyframes typing {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes hologram {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            .expertise-section h2,
+            .smart-tech-section h2 {
+                font-size: 2rem;
+            }
+            .expertise-card img {
+                height: 150px;
+            }
+            .expertise-card h5 {
+                font-size: 1.3rem;
+            }
+            .expertise-card p {
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            .expertise-card img {
+                height: 120px;
+            }
+            .expertise-section .row {
+                flex-direction: column;
+            }
+            .smart-tech-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Carbon Bonding Canvas -->
+    <canvas id="carbonCanvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/DHR Clouds logo.png" class="brand-logo" alt="DHR Clouds Logo">
+                <span class="company-name">DHR Clo<span class="falling-letter" data-delay="0.2s">u</span><span
+                        class="falling-letter" data-delay="0.4s">d</span><span class="falling-letter"
+                        data-delay="0.6s">s</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About-Us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Our-Expertise.html">Our Expertise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Solutions.html">Solutions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Careers.html">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact-Us.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="animate__animated">
+                <span class="char" style="--char-index: 0;">O</span>
+                <span class="char" style="--char-index: 1;">u</span>
+                <span class="char" style="--char-index: 2;">r</span>
+                <span class="char" style="--char-index: 3;"> </span>
+                <span class="char" style="--char-index: 4;">E</span>
+                <span class="char" style="--char-index: 5;">x</span>
+                <span class="char" style="--char-index: 6;">p</span>
+                <span class="char" style="--char-index: 7;">e</span>
+                <span class="char" style="--char-index: 8;">r</span>
+                <span class="char" style="--char-index: 9;">t</span>
+                <span class="char" style="--char-index: 10;">i</span>
+                <span class="char" style="--char-index: 11;">s</span>
+                <span class="char" style="--char-index: 12;">e</span>
+            </h1>
+            <p class="animate__animated">Discover how DHR Clouds leverages AI, cloud, and cybersecurity expertise to deliver transformative, secure, and intelligent solutions.</p>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+        <div class="container">
+            <h2 class="animate__animated animate__zoomIn">Our Core Expertise</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="expertise-card">
+                        <img src="https://t3.ftcdn.net/jpg/06/51/77/96/360_F_651779668_RtIuIZwT2J248KpR1H5eIs3J8yOGd4mC.jpg" alt="AI Development">
+                        <h5>AI Development</h5>
+                        <p>We build advanced AI models for machine learning, natural language processing, and computer vision, enabling intelligent automation and enhanced decision-making.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="expertise-card">
+                        <img src="https://www.beyondsoft.com/sg/wp-content/uploads/sites/6/2024/01/iStock-1393568349.jpg" alt="Cloud Infrastructure">
+                        <h5>Cloud Infrastructure</h5>
+                        <p>Our expertise in cloud architecture ensures secure, scalable, and AI-integrated cloud solutions, optimizing performance and business agility.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="expertise-card">
+                        <img src="https://assets.bizclikmedia.net/1800/31939d8a53ebe7c8b5c3c552d81db151:4ebeab1890b29e0931eb3d6a76a1f8cb/gettyimages-1277731016-20-284-29-1-jpg.webp" alt="Cybersecurity Solutions">
+                        <h5>Cybersecurity Solutions</h5>
+                        <p>We provide robust cybersecurity frameworks, including threat detection and AI-driven security analytics, to protect your digital assets.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="expertise-card">
+                        <img src="https://omnidata.com/wp-content/uploads/2022/11/How-To-Take-Your-Data-Analytics-Approach-To-The-Next-Level-in-2023.jpg" alt="AI-Powered Data Analytics">
+                        <h5>AI-Powered Data Analytics</h5>
+                        <p>Our AI-driven analytics platforms centralize and process data to deliver actionable insights, empowering businesses with a competitive edge.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="expertise-card">
+                        <img src="https://wrxflo.com/wp-content/uploads/2023/01/WrxFlo-Business-Intelligence-Dashboards.jpg" alt="AI Business Intelligence">
+                        <h5>AI Business Intelligence</h5>
+                        <p>We deliver AI-powered BI solutions with predictive analytics and intelligent dashboards to drive strategic decision-making and business growth.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="expertise-card">
+                        <img src="https://media.licdn.com/dms/image/v2/D5612AQHe_vlH5Q7_2A/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1685603785691?e=2147483647&v=beta&t=bNE6SIN0zEfQ8gtI6hFVrRXS4TUKhMDzrzZuPycQEvo" alt="AI-Driven Quality Assurance">
+                        <h5>AI-Driven Quality Assurance</h5>
+                        <p>Our AI-enhanced QA services use automated testing and cloud environments to ensure secure, high-performance, and reliable software solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Tech Section -->
+    <section class="smart-tech-section">
+        <div class="container">
+            <h2 class="animate__animated animate__zoomIn">AI-Powered Solutions for a Smarter Future</h2>
+            <p class="text-center">At DHR Clouds, artificial intelligence drives our innovative solutions across cloud computing and cybersecurity. We integrate AI into every aspect of our services, from intelligent automation and predictive analytics to secure cloud architectures and advanced threat detection. Our AI-driven approach enhances efficiency, strengthens security, and delivers unparalleled insights, enabling businesses to thrive in a digital-first world. With DHR Clouds, you gain not just technology, but a transformative, AI-powered future.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About DHR Clouds Inc</h5>
+                    <p>DHR Clouds is a premier provider of AI-driven solutions, specializing in artificial intelligence, cloud computing, and cybersecurity. Our expert team delivers innovative, secure, and scalable technologies to drive your business forward in the digital age.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="quick-links">
+                        <li><a href="index.html">➤ Home</a></li>
+                        <li><a href="About-Us.html">➤ About Us</a></li>
+                        <li><a href="Our-Expertise.html">➤ Our Expertise</a></li>
+                        <li><a href="Solutions.html">➤ Solutions</a></li>
+                        <li><a href="Careers.html">➤ Careers</a></li>
+                        <li><a href="Contact-Us.html">➤ Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <div class="contact-info">
+                        <p><strong>DHR Clouds Inc</strong></p>
+                        <p>10130 Mallard Creek Road, Suite 118</p>
+                        <p>Charlotte, NC 28262, USA</p>
+                        <p>Email: <a href="mailto:info@dhrclouds.com">info@dhrclouds.com</a></p>
+                        <p>Phone: <a href="tel:+19802462001">9802462001</a></p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/tilatechnologies/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tila-technologies/posts/?feedView=all" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <!-- Lazy Loading Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll("img");
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add("loaded");
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            images.forEach(img => observer.observe(img));
+        });
+    </script>
+    <!-- Carbon Bonding Animation Script -->
+    <script>
+        const canvas = document.getElementById('carbonCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const atoms = [];
+        const atomCount = 20;
+        const speed = 1;
+
+        class Atom {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * speed;
+                this.vy = (Math.random() - 0.5) * speed;
+                this.radius = 5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off walls
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 247, 255, 0.7)';
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+                ctx.stroke();
+            }
+        }
+
+        function initAtoms() {
+            for (let i = 0; i < atomCount; i++) {
+                atoms.push(new Atom());
+            }
+        }
+
+        function drawBonds() {
+            for (let i = 0; i < atoms.length; i++) {
+                for (let j = i + 1; j < atoms.length; j++) {
+                    const dx = atoms[i].x - atoms[j].x;
+                    const dy = atoms[i].y - atoms[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(atoms[i].x, atoms[i].y);
+                        ctx.lineTo(atoms[j].x, atoms[j].y);
+                        ctx.strokeStyle = `rgba(0, 247, 255, ${1 - distance / 100})`;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateCarbon() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            atoms.forEach(atom => {
+                atom.update();
+                atom.draw();
+            });
+            drawBonds();
+            requestAnimationFrame(animateCarbon);
+        }
+
+        initAtoms();
+        animateCarbon();
+    </script>
+</body>
+
+</html>

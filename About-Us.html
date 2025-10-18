@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts for Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="index.css">
+    <!-- Internal CSS for About Us Page -->
+    <style>
+        /* Black Container Background */
+        body {
+            background: #000000;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Blockchain Animation Canvas */
+        #blockchainCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        /* Lazy Loading Fade-In Effect */
+        img.lazy-load {
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 0.3s ease;
+        }
+        img.lazy-load.loaded {
+            opacity: 1;
+            transform: scale(1);
+        }
+        img.lazy-load:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            animation: fadeInDown 1s ease-in-out;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            animation: fadeInUp 1s ease-in-out 0.3s;
+            animation-fill-mode: both;
+        }
+
+        /* About Content Section (Who We Are) */
+        .about-content {
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(125, 122, 122, 0.95), rgba(50, 50, 50, 0.95));
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 98, 0, 0.1), transparent 70%);
+            animation: pulse 10s infinite ease-in-out;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        .about-content > * {
+            position: relative;
+            z-index: 1;
+        }
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(255, 98, 0, 0.5);
+            animation: bounceIn 1s ease-in-out;
+        }
+        .about-content p {
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 60px 0;
+            position: relative;
+            background: linear-gradient(45deg, rgba(30, 30, 30, 0.95), rgba(60, 60, 60, 0.95));
+            border-radius: 0px 0px 15px 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+        .mission-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120%;
+            height: 120%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="rgba(255,98,0,1.0)" fill-opacity="1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,133.3C672,117,768,139,864,154.7C960,171,1056,181,1152,181.3C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+            background-size: cover;
+            z-index: 0;
+            opacity: 0.3;
+            animation: waveRealistic 8s ease-in-out infinite alternate;
+        }
+
+        /* Realistic floating wave animation */
+        @keyframes waveRealistic {
+            0% {
+                transform: translateX(0px) translateY(0px) scale(1);
+            }
+            25% {
+                transform: translateX(-10px) translateY(-5px) scale(1.02);
+            }
+            50% {
+                transform: translateX(-10px) translateY(-40px) scale(1.02);
+            }
+            75% {
+                transform: translateX(-10px) translateY(5px) scale(1.02);
+            }
+            100% {
+                transform: translateX(0px) translateY(0px) scale(1);
+            }
+        }
+
+        .mission-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        .mission-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(193, 193, 193, 0.5);
+            animation: bounceIn 1s ease-in-out;
+        }
+        .mission-section p {
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+        .mission-section img {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        @media screen and (min-width: 768px) {
+            .mission-section img {
+                padding: 10%;
+            }
+        }
+
+        /* Skills & Expertise Section */
+        .skills-section {
+            padding: 60px 0;
+        }
+        .skills-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            animation: bounceIn 1s ease-in-out;
+        }
+        .skills-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            padding: 20px;
+            height: 100%;
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .skills-card::before {
+            content: "";
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(218, 12, 12, 0.05), transparent 70%);
+            filter: blur(20px);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .skills-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        .skills-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(255, 255, 255, 0.2);
+        }
+        .skills-card h5 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ff6200;
+        }
+        .skills-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        /* Animation Keyframes */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1440px); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            .about-content h2,
+            .mission-section h2,
+            .skills-section h2 {
+                font-size: 2rem;
+            }
+            .mission-section img {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Blockchain Animation Canvas -->
+    <canvas id="blockchainCanvas"></canvas>
+
+    <!-- Navbar (Same as index.html) -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo and Company Name -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/DHR Clouds logo.png" class="brand-logo" alt="DHR Clouds Logo">
+                <span class="company-name">DHR Clo<span class="falling-letter" data-delay="0.2s">u</span><span
+                        class="falling-letter" data-delay="0.4s">d</span><span class="falling-letter"
+                        data-delay="0.6s">s</span></span>
+            </a>
+            <!-- Toggle Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="About-Us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Our-Expertise.html">Our Expertise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Solutions.html">Solutions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Careers.html">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact-Us.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInDown">About DHR Clouds</h1>
+            <p class="animate__animated animate__fadeInUp">Pioneering AI-Driven Cloud and Cybersecurity Solutions for a Digital Future</p>
+        </div>
+    </section>
+
+    <!-- About Content Section (Who We Are) -->
+    <section class="about-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="animate__animated animate__bounceIn">Who We Are</h2>
+                    <p>DHR Clouds is a leading innovator in AI-powered IT solutions, specializing in artificial intelligence, cloud computing, and cybersecurity. With a global presence, we empower businesses with cutting-edge AI technologies, secure cloud infrastructures, and robust cybersecurity frameworks.</p>
+                    <p>Our team of AI experts, cloud architects, and cybersecurity specialists is dedicated to delivering transformative solutions that drive efficiency, security, and innovation. By harnessing the power of AI, we provide intelligent automation, predictive analytics, and scalable cloud environments tailored to your business needs.</p>
+                    <p>Guided by a commitment to excellence and innovation, DHR Clouds sets the standard for AI-driven digital transformation, ensuring our clients stay ahead in a rapidly evolving technological landscape.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="animate__animated animate__bounceIn">Our Mission</h2>
+                    <p>At DHR Clouds, our mission is to revolutionize business operations through AI-driven solutions, seamless cloud integration, and uncompromised cybersecurity. We aim to empower organizations with intelligent systems that optimize processes, enhance decision-making, and secure critical data.</p>
+                    <p>We are committed to pushing the boundaries of AI innovation, leveraging cloud technology to deliver scalable solutions, and implementing advanced cybersecurity measures to protect against evolving threats. Our goal is to enable businesses to achieve unparalleled success in the digital era through tailored, future-ready technologies.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="assets/our-mission.jpg" alt="Our Mission" class="img-fluid lazy-load our-mission-img" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Expertise Section -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="animate__animated animate__bounceIn">Our Skills & Expertise</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="skills-card">
+                        <h5>Artificial Intelligence</h5>
+                        <p>Our team excels in developing AI models for machine learning, natural language processing, and predictive analytics, driving intelligent automation and data-driven decision-making.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skills-card">
+                        <h5>Cloud Computing</h5>
+                        <p>We specialize in designing and deploying secure, scalable cloud infrastructures, enabling seamless migration and operational agility for businesses.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skills-card">
+                        <h5>Cybersecurity</h5>
+                        <p>Our expertise in advanced cybersecurity solutions protects your digital assets with threat detection, encryption, and compliance-driven strategies.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skills-card">
+                        <h5>AI-Powered Automation</h5>
+                        <p>We create intelligent automation systems that streamline workflows, reduce costs, and enhance efficiency using cutting-edge AI technologies.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skills-card">
+                        <h5>Data Analytics with AI</h5>
+                        <p>Our AI-driven data analytics solutions provide deep insights, enabling businesses to optimize strategies and achieve competitive advantages.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="skills-card">
+                        <h5>Cloud Security</h5>
+                        <p>We implement robust cloud security protocols to safeguard your infrastructure, ensuring data integrity and protection against cyber threats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-md-4">
+                    <h5>About DHR Clouds Inc</h5>
+                    <p>DHR Clouds is a premier provider of AI-driven solutions, specializing in artificial intelligence, cloud computing, and cybersecurity. Our expert team delivers innovative, secure, and scalable technologies to drive your business forward in the digital age.</p>
+                </div>
+                <!-- Quick Links Section -->
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="quick-links">
+                        <li><a href="index.html">➤ Home</a></li>
+                        <li><a href="About-Us.html">➤ About Us</a></li>
+                        <li><a href="Our-Expertise.html">➤ Our Expertise</a></li>
+                        <li><a href="Solutions.html">➤ Solutions</a></li>
+                        <li><a href="Careers.html">➤ Careers</a></li>
+                        <li><a href="Contact-Us.html">➤ Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Address and Social Media Section -->
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <div class="contact-info">
+                        <p><strong>DHR Clouds Inc</strong></p>
+                        <p>10130 Mallard Creek Road, Suite 118</p>
+                        <p>Charlotte, NC 28262, USA</p>
+                        <p>Email: <a href="mailto:info@dhrclouds.com">info@dhrclouds.com</a></p>
+                        <p>Phone: <a href="tel:+19802462001">9802462001</a></p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/tilatechnologies/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tila-technologies/posts/?feedView=all" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script  src="script.js"></script>
+    <!-- Lazy Loading Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll("img.lazy-load");
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add("loaded");
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            images.forEach(img => observer.observe(img));
+        });
+    </script>
+    <!-- Blockchain Animation Script -->
+    <script>
+        const canvas = document.getElementById('blockchainCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Hexagon properties
+        const hexagons = [];
+        const hexagonSize = 30;
+        const speed = 0.5;
+
+        // Hexagon class
+        class Hexagon {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.angle = Math.random() * Math.PI * 2;
+                this.velocity = {
+                    x: Math.cos(this.angle) * speed,
+                    y: Math.sin(this.angle) * speed
+                };
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.moveTo(this.x + hexagonSize * Math.cos(0), this.y + hexagonSize * Math.sin(0));
+                for (let i = 1; i <= 6; i++) {
+                    ctx.lineTo(
+                        this.x + hexagonSize * Math.cos((i * Math.PI) / 3),
+                        this.y + hexagonSize * Math.sin((i * Math.PI) / 3)
+                    );
+                }
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+
+            update() {
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+
+                // Bounce off edges
+                if (this.x < 0 || this.x > canvas.width) this.velocity.x = -this.velocity.x;
+                if (this.y < 0 || this.y > canvas.height) this.velocity.y = -this.velocity.y;
+
+                this.draw();
+            }
+        }
+
+        // Initialize hexagons
+        function initHexagons() {
+            const count = Math.floor((canvas.width * canvas.height) / 20000);
+            for (let i = 0; i < count; i++) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                hexagons.push(new Hexagon(x, y));
+            }
+        }
+
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            hexagons.forEach(hex => hex.update());
+            requestAnimationFrame(animate);
+        }
+
+        initHexagons();
+        animate();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts for Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <!-- <link href="navbar.css" rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo and Company Name -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/DHR Clouds logo2.jpg" class="brand-logo" alt="DHR Clouds Logo">
+                <span class="company-name">DHR Clo<span class="falling-letter" data-delay="0.2s">u</span><span
+                        class="falling-letter" data-delay="0.4s">d</span><span class="falling-letter"
+                        data-delay="0.6s">s</span></span>
+            </a>
+            <!-- Toggle Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About-Us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Our-Expertise.html">Our Expertise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Solutions.html">Solutions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Careers.html">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact-Us.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bootstrap Carousel -->
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('assets/cloud-computing-banner1.png');">
+                <div class="carousel-caption">
+                    <h5 class="animate__animated animate__fadeInDown">Empowering Cloud Solutions</h5>
+                    <p class="animate__animated animate__fadeInUp">Scalable, secure, and innovative cloud infrastructure
+                        for your business growth.</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('assets/cybersecurity-banner.webp');">
+                <div class="carousel-caption">
+                    <h5 class="animate__animated animate__fadeInDown">Robust Cybersecurity Solutions</h5>
+                    <p class="animate__animated animate__fadeInUp">Protect your digital assets with advanced threat
+                        detection and secure infrastructure.</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('assets/ai-banner.jpg');">
+                <div class="carousel-caption">
+                    <h5 class="animate__animated animate__fadeInDown">AI-Powered Innovation</h5>
+                    <p class="animate__animated animate__fadeInUp">Transform your business with intelligent automation
+                        and
+                        data-driven insights.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Rotating Images and About Us Section -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-12">
+                    <div class="rotating-images-container" id="rotatingContainer">
+                        <!-- Images and captions will be injected dynamically -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 about-us">
+                <h2 class="animate__animated animate__bounceIn">About Us</h2>
+                <p>DHR Cloud Technologies is a premier ITES organization specializing in AI, Cloud, and Cybersecurity
+                    solutions. With years of experience, our skilled team delivers secure, scalable, and innovative
+                    services tailored to your business needs.</p>
+                <p>We empower businesses with cutting-edge AI-driven automation, robust cloud infrastructure, and
+                    advanced
+                    cybersecurity measures, earning your trust through high-quality, timely solutions.</p>
+                <p>Our innovative approach leverages the latest advancements in artificial intelligence, cloud
+                    computing,
+                    and cybersecurity to drive business transformation, ensuring alignment with your goals for growth
+                    and
+                    security.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D Cards Section -->
+    <section class="cards-section">
+        <div class="container">
+            <h2 class="text-center mb-5 animate__animated animate__bounceIn main-titles">Our Services</h2>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="card card-3d">
+                        <img src="assets/OurServices-data-analysis.jpeg" alt="AI-Powered Analytics">
+                        <div class="card-body">
+                            <h5 class="card-title">AI-Powered Analytics</h5>
+                            <p class="card-text">Intelligent Insights for Data-Driven Decision Making</p>
+                            <div class="hidden-content">
+                                <p>Our AI-powered analytics solutions harness advanced algorithms to deliver actionable
+                                    insights, optimizing decision-making and enhancing business performance.</p>
+                            </div>
+                            <button class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></button>
+                            <button class="show-less-btn">Show Less</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="card card-3d">
+                        <img src="assets/OurServices-cloud-computing.jpeg" alt="Cloud Infrastructure">
+                        <div class="card-body">
+                            <h5 class="card-title">Cloud Infrastructure</h5>
+                            <p class="card-text">Secure Cloud Migration and Scalable Infrastructure Modernization</p>
+                            <div class="hidden-content">
+                                <p>We provide secure and scalable cloud solutions, ensuring seamless migration and
+                                    modernization of your infrastructure to support business growth and agility.</p>
+                            </div>
+                            <button class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></button>
+                            <button class="show-less-btn">Show Less</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="card card-3d">
+                        <img src="assets/OurServices-cybersecurity.jpg" alt="Cybersecurity Solutions">
+                        <div class="card-body">
+                            <h5 class="card-title">Cybersecurity Solutions</h5>
+                            <p class="card-text">Advanced Threat Detection and Secure Infrastructure</p>
+                            <div class="hidden-content">
+                                <p>Our cybersecurity services protect your business with cutting-edge threat detection,
+                                    secure infrastructure, and proactive risk management strategies.</p>
+                            </div>
+                            <button class="read-more-btn">Read More <i class="fas fa-arrow-right"></i></button>
+                            <button class="show-less-btn">Show Less</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- See What We Can Do For You Section -->
+    <section class="what-we-do-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-2"></div> <!-- Gap -->
+                <div class="col-md-8 text-center">
+                    <h2 class="typing-text mb-5">See What We Can Do For You</h2>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <img src="https://i.pinimg.com/736x/0d/34/ef/0d34efdbfa8f54bb83fa2142c33aff20.jpg"
+                                alt="Services Image" class="img-fluid rounded" style="max-width: 300px; height: auto;">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <ul class="service-list list-unstyled text-start">
+                                <li>AI-Powered Analytics</li>
+                                <li>Cloud Infrastructure</li>
+                                <li>Cybersecurity Solutions</li>
+                                <li>Cloud & DevOps</li>
+                                <li>AI & Automation</li>
+                                <li>Legacy Modernization</li>
+                                <li>IT Consulting</li>
+                                <li>Machine Learning Operations (MLOps)</li>
+                                <li>Cloud Security Management</li>
+                                <li>AI-Driven Threat Intelligence</li>
+                                <li>Hybrid Cloud Solutions</li>
+                                <li>Secure Data Lake Architecture</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div> <!-- Gap -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Content Section -->
+    <section class="featured-content-section">
+        <div class="smoke-background">
+            <!-- Smoke particles generated via JavaScript -->
+        </div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <h2 class="text-center mb-5 animate__animated animate__bounceIn main-titles">Featured Content</h2>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-3 mb-2 d-flex justify-content-center">
+                    <div class="book" aria-label="Open to view AI Automation image">
+                        <div class="book-content">
+                            <img src="assets/Featured Content-ai-automation.webp" alt="AI Automation">
+                        </div>
+                        <div class="cover">
+                            <p class="top-news">❤️Top News</p>
+                            <p class="card-title">DHR Clouds Launches AI-Powered Automation</p>
+                            <p class="card-content">Our latest AI suite helps businesses streamline workflows and reduce
+                                manual tasks with intelligent automation tools.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-3 mb-2 d-flex justify-content-center">
+                    <div class="book" aria-label="Open to view Cloud Migration image">
+                        <div class="book-content">
+                            <img src="https://i0.wp.com/tilatechnologies.com/wp-content/uploads/2025/05/project-2.webp?fit=1000%2C667&ssl=1"
+                                alt="Cloud Migration">
+                        </div>
+                        <div class="cover">
+                            <p class="top-news">❤️Top News</p>
+                            <p class="card-title">Successfully Migrated 50+ Clients to Secure Cloud</p>
+                            <p class="card-content">DHR Cloud Technologies completed a large-scale cloud migration,
+                                enhancing scalability and security for over 50 enterprises.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-3 mb-2 d-flex justify-content-center">
+                    <div class="book" aria-label="Open to view Cybersecurity image">
+                        <div class="book-content">
+                            <img src="assets/OurServices-cybersecurity.jpg" alt="Cybersecurity">
+                        </div>
+                        <div class="cover">
+                            <p class="top-news">❤️Top News</p>
+                            <p class="card-title">DHR Clouds Enhances Cybersecurity for Global Clients</p>
+                            <p class="card-content">Our advanced cybersecurity solutions now protect clients worldwide
+                                with
+                                real-time threat detection and robust security frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-3 d-flex justify-content-center">
+                    <div class="book" aria-label="Open to view Top IT Solutions image">
+                        <div class="book-content">
+                            <img src="https://i0.wp.com/tilatechnologies.com/wp-content/uploads/2025/05/project-1.webp?fit=1000%2C667&ssl=1"
+                                alt="Top IT Solutions">
+                        </div>
+                        <div class="cover">
+                            <p class="top-news">❤️Top News</p>
+                            <p class="card-title">Recognized as Top AI & Cloud Solutions Provider</p>
+                            <p class="card-content">DHR Clouds Technologies honored for excellence in AI, cloud, and
+                                cybersecurity solutions, driving innovation and client success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Square Animation -->
+            <div class="square-animation">
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-md-4">
+                    <h5>About DHR Clouds Inc</h5>
+                    <p>DHR Clouds is a premier provider of AI-driven solutions, specializing in artificial intelligence,
+                        cloud computing, and cybersecurity. Our expert team delivers innovative, secure, and scalable
+                        technologies to drive your business forward in the digital age.</p>
+                </div>
+                <!-- Quick Links Section -->
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="quick-links">
+                        <li><a href="index.html">➤ Home</a></li>
+                        <li><a href="About-Us.html">➤ About Us</a></li>
+                        <li><a href="Our-Expertise.html">➤ Our Expertise</a></li>
+                        <li><a href="Solutions.html">➤ Solutions</a></li>
+                        <li><a href="Careers.html">➤ Careers</a></li>
+                        <li><a href="Contact-Us.html">➤ Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Address and Social Media Section -->
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <div class="contact-info">
+                        <p><strong>DHR Clouds Inc</strong></p>
+                        <p>10130 Mallard Creek Road, Suite 118</p>
+                        <p>Charlotte, NC 28262, USA</p>
+                        <p>Email: <a href="mailto:info@dhrclouds.com">info@dhrclouds.com</a></p>
+                        <p>Phone: <a href="tel:+19802462001">9802462001</a></p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/tilatechnologies/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tila-technologies/posts/?feedView=all" target="_blank"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
